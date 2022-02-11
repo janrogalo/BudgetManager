@@ -8,11 +8,12 @@
 using namespace std;
 
 int main(){
-    BudgetManager budgetManager ("user.xml");
+    BudgetManager budgetManager("user.xml"); 
+    int loggedInUserId = 0;
 
     budgetManager.printAllUsers();
 
-    int loggedInUserId = 0;
+   
     
     do{
         char menuChoice;
@@ -27,6 +28,9 @@ int main(){
                 case '2':
                     budgetManager.logInUser();
                     loggedInUserId = budgetManager.getLoggedInUserId();
+                    cout << loggedInUserId;
+                 budgetManager.addExpense();
+                    budgetManager.printAllExpenses();
                     break;
                 case '9':
                     exit(0);
@@ -39,7 +43,6 @@ int main(){
         }
        
 }
-  
     while (true);
 }
     

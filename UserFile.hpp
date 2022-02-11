@@ -15,8 +15,7 @@ using namespace std;
 
 class UserFile : public XMLFile {
   ;
-    User getUserData();
-    
+
     
 public:
 UserFile(string filename) : XMLFile(filename){};

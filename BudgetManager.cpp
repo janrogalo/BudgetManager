@@ -28,3 +28,13 @@ void BudgetManager::mainMenu(){
 int BudgetManager::getLoggedInUserId(){
    return userManager.getLoggedinUserId();
 }
+
+
+void BudgetManager::addExpense(){
+    expenseManager ->addExpense();
+}
+
+void BudgetManager::printAllExpenses(){
+    expenseManager ->printAllExpenses();
+}
+

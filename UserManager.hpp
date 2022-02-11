@@ -36,13 +36,6 @@ UserManager(string userFilename) : userFile(userFilename){
     void printAllUsers();
     int getLoggedinUserId();
     
-    //void wczytajUzytkownikowZPliku();
-  //  void zmianaHaslaZalogowanegoUzytkownika();
-  //  void ustawIdZalogowanegoUzytkownika (int IDZALOGOWANEGOUZYTKOWNIKA );
-
-   // void wylogujUzytkownika();
-   // bool czyUzytkownikJestZalogowany();
-    
 };
 
 
