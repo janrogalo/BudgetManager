@@ -21,7 +21,7 @@
 
 class ExpenseManager {
 
-   const int LOGGED_IN_USER_ID;
+    const int LOGGED_IN_USER_ID;
     vector <Expense> expenses;
     int lastExpenseOperationId;
     
@@ -29,11 +29,11 @@ class ExpenseManager {
     
 public:
    ExpenseManager(int loggedInUserId) : LOGGED_IN_USER_ID(loggedInUserId){
-       
    };
  
     void addExpense();
     void printAllExpenses();
-    
+    int getLastExpenseOperationId();
+    int setLastExpenseOperationId();
 };
 #endif /* ExpenseManager_hpp */

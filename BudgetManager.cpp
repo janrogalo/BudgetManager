@@ -10,6 +10,9 @@ userManager.printAllUsers();
 
 void BudgetManager::logInUser(){
     userManager.loginUser();
+    if (userManager.isUserLoggedIn() == true){
+    expenseManager = new ExpenseManager(getLoggedInUserId());
+    }
 }
 
 void BudgetManager::mainMenu(){
@@ -28,7 +31,6 @@ void BudgetManager::mainMenu(){
 int BudgetManager::getLoggedInUserId(){
    return userManager.getLoggedinUserId();
 }
-
 
 void BudgetManager::addExpense(){
     expenseManager ->addExpense();

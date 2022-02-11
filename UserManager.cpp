@@ -94,3 +94,11 @@ int UserManager::getLoggedinUserId()
 {
     return loggedInUserId;
 }
+
+bool UserManager::isUserLoggedIn()
+{
+    if (loggedInUserId >0)
+        return true;
+    else
+        return false;
+}

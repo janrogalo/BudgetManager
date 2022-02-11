@@ -35,6 +35,7 @@ UserManager(string userFilename) : userFile(userFilename){
     void registerUser();
     void printAllUsers();
     int getLoggedinUserId();
+    bool isUserLoggedIn();
     
 };
 

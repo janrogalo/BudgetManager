@@ -30,6 +30,8 @@ int main(){
                     loggedInUserId = budgetManager.getLoggedInUserId();
                     cout << loggedInUserId;
                  budgetManager.addExpense();
+                    budgetManager.addExpense();
+                    budgetManager.addExpense();
                     budgetManager.printAllExpenses();
                     break;
                 case '9':

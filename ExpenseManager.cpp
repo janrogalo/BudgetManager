@@ -1,12 +1,10 @@
 #include "ExpenseManager.hpp"
 
 void ExpenseManager::addExpense(){
-
     Expense expense;
 
     cout << " >>> INPUT NEW EXPENSE <<<" << endl << endl;
     expense = inputNewExpense();
-    cout << expenses.size() << "TYLE" << endl;
     expenses.push_back(expense);
 }
 
@@ -15,14 +13,14 @@ Expense ExpenseManager::inputNewExpense(){
 
 Expense expense;
     
-expense.setExpenseOperationId(666);
-expense.setUserId(2);
+expense.setExpenseOperationId(setLastExpenseOperationId());
+expense.setUserId(LOGGED_IN_USER_ID);
 cout << "Enter Type: " << endl;
-expense.setType("POWER");
+expense.setType(SupportingMethods::inputLine());
 cout << "Enter amount: " << endl;
-expense.setAmount(123);
+expense.setAmount(stoi(SupportingMethods::inputLine()));
 cout << "Set operation date: " << endl;
-expense.setDate("DATE");
+expense.setDate(SupportingMethods::inputLine());
     
 return expense;
 }
@@ -34,5 +32,20 @@ void ExpenseManager::printAllExpenses(){
         cout << expenses[i].getType()<<endl;
         cout << expenses[i].getAmount()<<endl;
         cout << expenses[i].getDate()<<endl;
+    }
+}
+
+
+
+int ExpenseManager::getLastExpenseOperationId(){
+    return lastExpenseOperationId;
+}
+
+int ExpenseManager::setLastExpenseOperationId(){
+    {
+        if (expenses.empty() == true)
+            return 1;
+        else
+            return expenses.back().getExpenseOperationId() + 1;
     }
 }
