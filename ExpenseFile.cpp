@@ -63,7 +63,7 @@ vector <Expense> ExpenseFile::readExpenseOperationsFromFile(int loggedInUserId){
     
 int ExpenseFile::getlastExpenseOperationId(){
     Expense expense;
-    int lastId;
+    int lastId=0;
     
     CMarkup xml;
     bool fileExists = xml.Load(getFilename());
