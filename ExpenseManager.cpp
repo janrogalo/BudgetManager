@@ -15,7 +15,7 @@ Expense ExpenseManager::inputNewExpense(){
 
 Expense expense;
     
-expense.setExpenseOperationId(setLastExpenseOperationId());
+expense.setExpenseOperationId(expenseFile.getlastExpenseOperationId()+1);
 expense.setUserId(LOGGED_IN_USER_ID);
 cout << "Enter Type: " << endl;
 expense.setType(SupportingMethods::inputLine());
@@ -51,3 +51,9 @@ int ExpenseManager::setLastExpenseOperationId(){
             return expenses.back().getExpenseOperationId() + 1;
     }
 }
+
+/*
+vector <Expense> ExpenseManager:: readExpenseOperationsFromFile (int loggedInUserId){
+    expenses = expenseFile.readExpenseOperationsFromFile(LOGGED_IN_USER_ID);
+}
+*/

@@ -30,10 +30,15 @@ class ExpenseManager {
     
 public:
    ExpenseManager(int loggedInUserId, string expenseFilename) : LOGGED_IN_USER_ID(loggedInUserId), expenseFile(expenseFilename) {
+       
+       cout << "OBIEKT STWORZONY" << endl;
+       expenses = expenseFile.readExpenseOperationsFromFile(LOGGED_IN_USER_ID);
+       printAllExpenses();
    };
  
     void addExpense();
     void printAllExpenses();
+    vector <Expense> readExpenseOperationsFromFile (int loggedInUserId);
     int getLastExpenseOperationId();
     int setLastExpenseOperationId();
 };

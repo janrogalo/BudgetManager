@@ -30,3 +30,57 @@ bool ExpenseFile::saveExpenseOperationToFile(Expense expense){
         lastExpenseOperationId++;
         return true;
     }
+
+vector <Expense> ExpenseFile::readExpenseOperationsFromFile(int loggedInUserId){
+    Expense expense;
+    vector <Expense> expenses;
+    
+    CMarkup xml;
+    bool fileExists = xml.Load(getFilename());
+    if (fileExists){
+    xml.FindElem();
+    xml.IntoElem();
+        
+    while (xml.FindElem("Expense"))
+    {
+        xml.FindChildElem("ExpenseOperationId");
+        expense.setExpenseOperationId(stoi(xml.GetChildData()));
+        xml.FindChildElem("UserId");
+        expense.setUserId(stoi(xml.GetChildData()));
+        xml.FindChildElem("Type");
+        expense.setType(xml.GetChildData());
+        xml.FindChildElem("Amount");
+        expense.setAmount(stoi(xml.GetChildData()));
+        xml.FindChildElem("Date");
+        expense.setDate(xml.GetChildData());
+        if (expense.getUserId() == loggedInUserId){
+        expenses.push_back(expense);
+        }
+    }
+    }
+    return expenses;
+}
+    
+int ExpenseFile::getlastExpenseOperationId(){
+    Expense expense;
+    int lastId;
+    
+    CMarkup xml;
+    bool fileExists = xml.Load(getFilename());
+    if (fileExists){
+    xml.FindElem();
+    xml.IntoElem();
+        
+    while (xml.FindElem("Expense"))
+    {
+    
+        xml.FindChildElem("ExpenseOperationId");
+        expense.setExpenseOperationId(stoi(xml.GetChildData()));
+        }
+        
+ lastId = expense.getExpenseOperationId();
+    }
+return lastId;
+}
+    
+

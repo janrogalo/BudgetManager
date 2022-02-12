@@ -23,7 +23,8 @@ class ExpenseFile : public XMLFile {
 public:
     ExpenseFile(string filename) : XMLFile(filename)
     {
-        lastExpenseOperationId = 0;
+        lastExpenseOperationId = getlastExpenseOperationId();
+        cout << lastExpenseOperationId;
     };
     
     bool saveExpenseOperationToFile(Expense expense);
