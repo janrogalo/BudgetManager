@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
-#include "OperationFile.hpp"
+#include "ExpenseFile.hpp"
 #include "UserManager.hpp"
 #include "Expense.hpp"
 #include "SupportingMethods.hpp"
@@ -24,11 +24,12 @@ class ExpenseManager {
     const int LOGGED_IN_USER_ID;
     vector <Expense> expenses;
     int lastExpenseOperationId;
+    ExpenseFile expenseFile;
     
    Expense inputNewExpense();
     
 public:
-   ExpenseManager(int loggedInUserId) : LOGGED_IN_USER_ID(loggedInUserId){
+   ExpenseManager(int loggedInUserId, string expenseFilename) : LOGGED_IN_USER_ID(loggedInUserId), expenseFile(expenseFilename) {
    };
  
     void addExpense();

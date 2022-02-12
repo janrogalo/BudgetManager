@@ -6,6 +6,8 @@ void ExpenseManager::addExpense(){
     cout << " >>> INPUT NEW EXPENSE <<<" << endl << endl;
     expense = inputNewExpense();
     expenses.push_back(expense);
+    expenseFile.saveExpenseOperationToFile(expense);
+    
 }
 
 

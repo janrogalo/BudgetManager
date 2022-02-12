@@ -11,7 +11,7 @@ userManager.printAllUsers();
 void BudgetManager::logInUser(){
     userManager.loginUser();
     if (userManager.isUserLoggedIn() == true){
-    expenseManager = new ExpenseManager(getLoggedInUserId());
+    expenseManager = new ExpenseManager(getLoggedInUserId(), "expense.xml");
     }
 }
 

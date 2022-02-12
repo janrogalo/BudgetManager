@@ -8,7 +8,7 @@
 using namespace std;
 
 int main(){
-    BudgetManager budgetManager("user.xml"); 
+    BudgetManager budgetManager("user.xml", "expense.xml"); 
     int loggedInUserId = 0;
 
     budgetManager.printAllUsers();

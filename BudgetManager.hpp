@@ -13,11 +13,12 @@ class BudgetManager{
     
     UserManager userManager;
     ExpenseManager *expenseManager;
+    const string EXPENSE_FILENAME;
   
     
 public:
     
-    BudgetManager(string userFilename) : userManager(userFilename)
+    BudgetManager(string userFilename, string expenseFilename) : userManager(userFilename), EXPENSE_FILENAME(expenseFilename)
     {
        expenseManager = NULL;
     };
