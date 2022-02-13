@@ -15,7 +15,6 @@ class BudgetManager{
     ExpenseManager *expenseManager;
     const string EXPENSE_FILENAME;
   
-    
 public:
     
     BudgetManager(string userFilename, string expenseFilename) : userManager(userFilename), EXPENSE_FILENAME(expenseFilename)
@@ -35,11 +34,10 @@ public:
     void printAllUsers();
     void mainMenu();
     int getLoggedInUserId();
-    
     void addExpense();
     void printAllExpenses();
-    //void addOperation();
     void printAllOperations();
+    void printThisMonthsExpenseBalance();
 
 };
 

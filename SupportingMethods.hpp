@@ -16,8 +16,8 @@ class SupportingMethods{
 public:
 
 static string inputLine();
-static int convertDateToInt(string date);
-static string convertDateToString(int date);
+static string convertDateToDigits(string date);
+static string convertDateToFormat(string date);
 
 
 };

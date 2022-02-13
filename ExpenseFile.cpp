@@ -1,10 +1,3 @@
-//
-//  ExpenseFile.cpp
-//  XML_Proby
-//
-//  Created by Jan Rogalo on 11/02/2022.
-//
-
 #include "ExpenseFile.hpp"
  
  

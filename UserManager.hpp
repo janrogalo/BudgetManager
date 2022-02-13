@@ -39,6 +39,4 @@ UserManager(string userFilename) : userFile(userFilename){
     
 };
 
-
-
 #endif /* UserManager_hpp */

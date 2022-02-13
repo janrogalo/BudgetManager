@@ -40,3 +40,6 @@ void BudgetManager::printAllExpenses(){
     expenseManager ->printAllExpenses();
 }
 
+void BudgetManager::printThisMonthsExpenseBalance(){
+    expenseManager -> thisMonthsBalance();
+}

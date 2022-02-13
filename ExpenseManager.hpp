@@ -1,10 +1,3 @@
-//
-//  ExpenseManager.hpp
-//  XML_Proby
-//
-//  Created by Jan Rogalo on 11/02/2022.
-//
-
 #ifndef ExpenseManager_hpp
 #define ExpenseManager_hpp
 
@@ -15,9 +8,7 @@
 #include "UserManager.hpp"
 #include "Expense.hpp"
 #include "SupportingMethods.hpp"
-
-
-
+#include "DateManagement.hpp"
 
 class ExpenseManager {
 
@@ -25,15 +16,15 @@ class ExpenseManager {
     vector <Expense> expenses;
     int lastExpenseOperationId;
     ExpenseFile expenseFile;
+    DateManagement dateManagement;
     
    Expense inputNewExpense();
     
 public:
    ExpenseManager(int loggedInUserId, string expenseFilename) : LOGGED_IN_USER_ID(loggedInUserId), expenseFile(expenseFilename) {
-       
-       cout << "OBIEKT STWORZONY" << endl;
+    
        expenses = expenseFile.readExpenseOperationsFromFile(LOGGED_IN_USER_ID);
-       printAllExpenses();
+    
    };
  
     void addExpense();
@@ -41,5 +32,8 @@ public:
     vector <Expense> readExpenseOperationsFromFile (int loggedInUserId);
     int getLastExpenseOperationId();
     int setLastExpenseOperationId();
+    void thisMonthsBalance();
+    vector <Expense> sortExpenses();
+    
 };
 #endif /* ExpenseManager_hpp */

@@ -1,10 +1,3 @@
-//
-//  ExpenseFile.hpp
-//  XML_Proby
-//
-//  Created by Jan Rogalo on 11/02/2022.
-//
-
 #ifndef ExpenseFile_hpp
 #define ExpenseFile_hpp
 
@@ -12,11 +5,13 @@
 #include <vector>
 #include "Expense.hpp"
 #include "XMLFile.hpp"
+#include "SupportingMethods.hpp"
 
 class ExpenseFile : public XMLFile {
     
     int lastExpenseOperationId;
     int loggedInUserId;
+    SupportingMethods supportinMethods;
     
     Expense getExpenseData();
     

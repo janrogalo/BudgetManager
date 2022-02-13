@@ -17,12 +17,13 @@ Expense expense;
     
 expense.setExpenseOperationId(expenseFile.getlastExpenseOperationId()+1);
 expense.setUserId(LOGGED_IN_USER_ID);
-cout << "Enter Type: " << endl;
+cout << "Enter expense category: " << endl;
 expense.setType(SupportingMethods::inputLine());
 cout << "Enter amount: " << endl;
 expense.setAmount(stoi(SupportingMethods::inputLine()));
-cout << "Set operation date: " << endl;
-expense.setDate(SupportingMethods::inputLine());
+cout << "Enter operation date in YYYY-MM-DD format: " << endl;
+    string date = SupportingMethods::inputLine();
+expense.setDate(SupportingMethods::convertDateToDigits(date));
     
 return expense;
 }
@@ -52,8 +53,33 @@ int ExpenseManager::setLastExpenseOperationId(){
     }
 }
 
-/*
-vector <Expense> ExpenseManager:: readExpenseOperationsFromFile (int loggedInUserId){
-    expenses = expenseFile.readExpenseOperationsFromFile(LOGGED_IN_USER_ID);
+void ExpenseManager::thisMonthsBalance(){
+   
+    int expenseBalance = 0;
+    cout <<dateManagement.currentMonthBegining() << endl;
+    cout <<dateManagement.currentDate()<< endl;
+    
+    for (int i = 0; i < expenses.size(); i++){
+
+        if ((stoi(expenses[i].getDate()) >= dateManagement.currentMonthBegining()) && (stoi(expenses[i].getDate()) <= dateManagement.currentDate())){
+            cout << expenses[i].getExpenseOperationId()<<endl;
+            cout << expenses[i].getType()<<endl;
+            cout << expenses[i].getAmount()<<endl;
+            
+            string date =  SupportingMethods::convertDateToFormat(expenses[i].getDate());
+            cout << date << endl;
+            
+            expenseBalance += expenses[i].getAmount();
+        }
+    }
+    
+    cout << "This month you spent: " << expenseBalance << endl;
 }
-*/
+
+vector <Expense> ExpenseManager::sortExpenses()
+{
+    return expenses;
+}
+
+
+

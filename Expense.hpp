@@ -1,10 +1,3 @@
-//
-//  Expense.hpp
-//  XML_Proby
-//
-//  Created by Jan Rogalo on 11/02/2022.
-//
-
 #ifndef Expense_hpp
 #define Expense_hpp
 

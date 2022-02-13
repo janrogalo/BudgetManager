@@ -1,10 +1,3 @@
-//
-//  XMLFile.hpp
-//  XML_Proby
-//
-//  Created by Jan Rogalo on 09/02/2022.
-//
-
 #ifndef XMLFile_hpp
 #define XMLFile_hpp
 
