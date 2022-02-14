@@ -75,5 +75,5 @@ int ExpenseFile::getlastExpenseOperationId(){
     }
 return lastId;
 }
-    
+
 

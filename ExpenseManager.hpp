@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include "ExpenseFile.hpp"
 #include "UserManager.hpp"
 #include "Expense.hpp"
@@ -27,13 +28,18 @@ public:
     
    };
  
+  
+    
+    
+    
     void addExpense();
     void printAllExpenses();
     vector <Expense> readExpenseOperationsFromFile (int loggedInUserId);
     int getLastExpenseOperationId();
     int setLastExpenseOperationId();
     void thisMonthsBalance();
-    vector <Expense> sortExpenses();
+    vector <Expense> SortExpensesByDate();
+        
     
 };
 #endif /* ExpenseManager_hpp */

@@ -59,27 +59,29 @@ void ExpenseManager::thisMonthsBalance(){
     cout <<dateManagement.currentMonthBegining() << endl;
     cout <<dateManagement.currentDate()<< endl;
     
-    for (int i = 0; i < expenses.size(); i++){
+    vector <Expense> expensesSorted = SortExpensesByDate();
+    
+    for (int i = 0; i < expensesSorted.size(); i++){
 
-        if ((stoi(expenses[i].getDate()) >= dateManagement.currentMonthBegining()) && (stoi(expenses[i].getDate()) <= dateManagement.currentDate())){
-            cout << expenses[i].getExpenseOperationId()<<endl;
-            cout << expenses[i].getType()<<endl;
-            cout << expenses[i].getAmount()<<endl;
+        if ((stoi(expensesSorted[i].getDate()) >= dateManagement.currentMonthBegining()) && (stoi(expensesSorted[i].getDate()) <= dateManagement.currentDate())){
+            cout << expensesSorted[i].getExpenseOperationId()<<endl;
+            cout << expensesSorted[i].getType()<<endl;
+            cout << expensesSorted[i].getAmount()<<endl;
             
-            string date =  SupportingMethods::convertDateToFormat(expenses[i].getDate());
+            string date =  SupportingMethods::convertDateToFormat(expensesSorted[i].getDate());
             cout << date << endl;
             
-            expenseBalance += expenses[i].getAmount();
+            expenseBalance += expensesSorted[i].getAmount();
         }
     }
-    
     cout << "This month you spent: " << expenseBalance << endl;
 }
 
-vector <Expense> ExpenseManager::sortExpenses()
-{
-    return expenses;
+
+vector<Expense> ExpenseManager::SortExpensesByDate(){
+vector<Expense>expensesCopy = expenses;
+sort(expensesCopy.begin(), expensesCopy.end());
+return expensesCopy;
 }
-
-
+    
 

@@ -14,6 +14,7 @@ class Expense{
     int amount;
     string type;
   
+
 public:
     
     void setExpenseOperationId(int newExpenseOperationId);
@@ -27,6 +28,13 @@ public:
     string getDate();
     int getAmount();
     string getType();
+    
+    bool operator< (const Expense &other) const {
+          return stoi(date) < stoi(other.date);
+      }
+    
+    
+  
  
   
 };
