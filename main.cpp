@@ -8,7 +8,7 @@
 using namespace std;
 
 int main(){
-    BudgetManager budgetManager("user.xml", "expense.xml"); 
+    BudgetManager budgetManager("user.xml", "expense.xml", "income.xml"); 
     int loggedInUserId = 0;
 
     budgetManager.printAllUsers();
@@ -26,7 +26,10 @@ int main(){
                 case '2':
                     budgetManager.logInUser();
                     loggedInUserId = budgetManager.getLoggedInUserId();
-                    budgetManager.printThisMonthsExpenseBalance();
+                    budgetManager.addIncomes();
+                    budgetManager.printAllIncomes();
+                    cout << endl << endl;
+                    budgetManager.printchosenPeriodExpenseBalance();
                  budgetManager.addExpense();
                 //    budgetManager.printAllExpenses();
                     break;

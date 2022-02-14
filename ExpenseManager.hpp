@@ -27,19 +27,16 @@ public:
        expenses = expenseFile.readExpenseOperationsFromFile(LOGGED_IN_USER_ID);
     
    };
- 
-  
-    
-    
-    
+
     void addExpense();
     void printAllExpenses();
     vector <Expense> readExpenseOperationsFromFile (int loggedInUserId);
     int getLastExpenseOperationId();
     int setLastExpenseOperationId();
-    void thisMonthsBalance();
+    void thisMonthsExpenseBalance();
+    void previousMonthsExpenseBalance();
+    void chosenPeriodExpenseBalance();
     vector <Expense> SortExpensesByDate();
         
-    
 };
 #endif /* ExpenseManager_hpp */

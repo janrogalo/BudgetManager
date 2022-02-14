@@ -10,23 +10,29 @@ class Income{
 
     int incomeOperationId;
     int userId;
-    int amount;
     string date;
-   
+    int amount;
+    string type;
+  
 
 public:
     
     void setIncomeOperationId(int newIncomeOperationId);
     void setUserId(int newUserId);
-    void setAmount(int newAmount);
     void setDate(string newDate);
+    void setAmount(int newAmount);
+    void setType(string newType);
  
     int getIncomeOperationId();
     int getUserId();
-    int getAmount();
     string getDate();
+    int getAmount();
+    string getType();
+    
+    bool operator< (const Income &other) const {
+          return stoi(date) < stoi(other.date);
+      }
 
-  
 };
 
 

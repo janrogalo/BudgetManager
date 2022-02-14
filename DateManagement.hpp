@@ -24,7 +24,8 @@ public:
     int static currentDate();
     int static currentMonthBegining();
     int static howManyDaysInMonth(int year, int month);
-    void static previousMonth();
+    int static previousMonthBeginning();
+    int static previousMonthEnd();
     int  howManyDaysSinceFirstDate(int year, int month, int day);
     
     int getBeginningYear();

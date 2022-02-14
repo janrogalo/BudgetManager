@@ -19,7 +19,6 @@ public:
     ExpenseFile(string filename) : XMLFile(filename)
     {
         lastExpenseOperationId = getlastExpenseOperationId();
-        cout << lastExpenseOperationId;
     };
     
     bool saveExpenseOperationToFile(Expense expense);

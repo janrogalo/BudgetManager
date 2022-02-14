@@ -12,6 +12,7 @@ void BudgetManager::logInUser(){
     userManager.loginUser();
     if (userManager.isUserLoggedIn() == true){
     expenseManager = new ExpenseManager(getLoggedInUserId(), "expense.xml");
+        incomeManager = new IncomeManager(getLoggedInUserId(), "income.xml");
     }
 }
 
@@ -41,5 +42,33 @@ void BudgetManager::printAllExpenses(){
 }
 
 void BudgetManager::printThisMonthsExpenseBalance(){
-    expenseManager -> thisMonthsBalance();
+    expenseManager -> thisMonthsExpenseBalance();
+}
+
+void BudgetManager::printPreviousMonthsExpenseBalance(){
+    expenseManager -> previousMonthsExpenseBalance();
+}
+
+void BudgetManager::printchosenPeriodExpenseBalance(){
+    expenseManager -> chosenPeriodExpenseBalance();
+}
+
+void BudgetManager::addIncomes(){
+    incomeManager ->addIncome();
+}
+
+void BudgetManager::printAllIncomes(){
+    incomeManager ->printAllIncomes();
+}
+
+void BudgetManager::printThisMonthsIncomeBalance(){
+    incomeManager -> thisMonthsIncomeBalance();
+}
+
+void BudgetManager::printPreviousMonthsIncomeBalance(){
+    incomeManager -> previousMonthsIncomeBalance();
+}
+
+void BudgetManager::printchosenPeriodIncomeBalance(){
+    incomeManager -> chosenPeriodIncomeBalance();
 }

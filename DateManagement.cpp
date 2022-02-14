@@ -57,18 +57,37 @@ int DateManagement::howManyDaysInMonth(int year, int month){
     }
 }
 
-void DateManagement::previousMonth(){
+int DateManagement::previousMonthBeginning(){
     
 time_t t = time(NULL);
 tm* tPtr = localtime(&t);
 
-int month = (tPtr->tm_mon)+1;
+int month = (tPtr->tm_mon);
 int year = (tPtr->tm_year)+1900;
     
 int previousMonthBeginning = year*10000 + month *100 + 1;
-int previousMonthEnd = year*10000 + month *100 + howManyDaysInMonth(year, month);
-    
+
+    return previousMonthBeginning;
 }
+
+
+int DateManagement::previousMonthEnd(){
+    
+time_t t = time(NULL);
+tm* tPtr = localtime(&t);
+
+int month = (tPtr->tm_mon);
+int year = (tPtr->tm_year)+1900;
+    
+int previousMonthEnd = year*10000 + month *100 + howManyDaysInMonth(year, month);
+return previousMonthEnd;
+}
+
+
+
+
+
+
 
 
 

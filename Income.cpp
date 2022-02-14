@@ -1,8 +1,9 @@
 #include "Income.hpp"
 
 
-void Income::setIncomeOperationId(int newIncomeOperationId){
-    incomeOperationId = newIncomeOperationId;
+
+void Income::setIncomeOperationId(int newvOperationId){
+    incomeOperationId = newvOperationId;
 }
 void Income::setUserId(int newUserId){
     if (newUserId >= 0)
@@ -15,6 +16,10 @@ void Income::setDate(string newDate)
 void Income::setAmount(int newAmount){
     amount = newAmount;
 }
+void Income::setType(string newType){
+    type = newType;
+}
+
 
 int Income::getIncomeOperationId(){
     return incomeOperationId;
@@ -30,4 +35,8 @@ string Income::getDate(){
 
 int Income::getAmount(){
     return amount;
+}
+
+string Income::getType(){
+    return type;
 }
