@@ -36,10 +36,10 @@ void printAllIncomes();
 vector <Income> readIncomeOperationsFromFile (int loggedInUserId);
 int getLastIncomeOperationId();
 int setLastIncomeOperationId();
-void thisMonthsIncomeBalance();
-void previousMonthsIncomeBalance();
+int thisMonthsIncomeBalance();
+int previousMonthsIncomeBalance();
 vector <Income> SortIncomesByDate();
-    void chosenPeriodIncomeBalance();
+    int chosenPeriodIncomeBalance( int beginningDate, int endDate);
     
 };
 

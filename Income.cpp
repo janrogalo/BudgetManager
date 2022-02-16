@@ -13,7 +13,7 @@ void Income::setDate(string newDate)
 {
     date = newDate;
 }
-void Income::setAmount(int newAmount){
+void Income::setAmount(double newAmount){
     amount = newAmount;
 }
 void Income::setType(string newType){
@@ -33,7 +33,7 @@ string Income::getDate(){
     return date;
 }
 
-int Income::getAmount(){
+double Income::getAmount(){
     return amount;
 }
 

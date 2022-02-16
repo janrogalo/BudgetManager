@@ -6,6 +6,7 @@
 #include "UserManager.hpp"
 #include "ExpenseManager.hpp"
 #include "IncomeManager.hpp"
+#include "DateManagement.hpp"
 
 
 using namespace std;
@@ -15,6 +16,8 @@ class BudgetManager{
     UserManager userManager;
     ExpenseManager *expenseManager;
     IncomeManager *incomeManager;
+    
+
     const string EXPENSE_FILENAME;
     const string INCOME_FILENAME;
   
@@ -40,16 +43,10 @@ public:
     void mainMenu();
     int getLoggedInUserId();
     void addExpense();
-    void printAllExpenses();
-    void printThisMonthsExpenseBalance();
-    void printPreviousMonthsExpenseBalance();
-    void printchosenPeriodExpenseBalance();
-    
     void addIncomes();
-    void printAllIncomes();
-    void printThisMonthsIncomeBalance();
-    void printPreviousMonthsIncomeBalance();
-    void printchosenPeriodIncomeBalance();
+    void thisMonthsBalance();
+    void lastMonthsBalance();
+    void chosenPeriodBalance();
 
 };
 

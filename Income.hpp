@@ -11,7 +11,7 @@ class Income{
     int incomeOperationId;
     int userId;
     string date;
-    int amount;
+    double amount;
     string type;
   
 
@@ -20,13 +20,13 @@ public:
     void setIncomeOperationId(int newIncomeOperationId);
     void setUserId(int newUserId);
     void setDate(string newDate);
-    void setAmount(int newAmount);
+    void setAmount(double newAmount);
     void setType(string newType);
  
     int getIncomeOperationId();
     int getUserId();
     string getDate();
-    int getAmount();
+    double getAmount();
     string getType();
     
     bool operator< (const Income &other) const {

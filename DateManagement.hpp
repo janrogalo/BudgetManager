@@ -30,6 +30,8 @@ public:
     
     int getBeginningYear();
     
+    bool static dateValidation(string date);
+    
 };
 
 

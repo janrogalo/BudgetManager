@@ -11,7 +11,7 @@ int main(){
     BudgetManager budgetManager("user.xml", "expense.xml", "income.xml"); 
     int loggedInUserId = 0;
 
-    budgetManager.printAllUsers();
+  //  budgetManager.printAllUsers();
 
     do{
         char menuChoice;
@@ -26,12 +26,12 @@ int main(){
                 case '2':
                     budgetManager.logInUser();
                     loggedInUserId = budgetManager.getLoggedInUserId();
-                    budgetManager.addIncomes();
-                    budgetManager.printAllIncomes();
-                    cout << endl << endl;
-                    budgetManager.printchosenPeriodExpenseBalance();
-                 budgetManager.addExpense();
-                //    budgetManager.printAllExpenses();
+                    
+                   // budgetManager.addIncomes();
+                  //  budgetManager.addExpense();
+                    budgetManager.chosenPeriodBalance();
+                    
+         
                     break;
                 case '9':
                     exit(0);

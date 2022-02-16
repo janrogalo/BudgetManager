@@ -33,9 +33,9 @@ public:
     vector <Expense> readExpenseOperationsFromFile (int loggedInUserId);
     int getLastExpenseOperationId();
     int setLastExpenseOperationId();
-    void thisMonthsExpenseBalance();
-    void previousMonthsExpenseBalance();
-    void chosenPeriodExpenseBalance();
+    int thisMonthsExpenseBalance();
+    int previousMonthsExpenseBalance();
+    int chosenPeriodExpenseBalance(int beginningDate, int endDate);
     vector <Expense> SortExpensesByDate();
         
 };

@@ -43,7 +43,7 @@ vector <Expense> ExpenseFile::readExpenseOperationsFromFile(int loggedInUserId){
         xml.FindChildElem("Type");
         expense.setType(xml.GetChildData());
         xml.FindChildElem("Amount");
-        expense.setAmount(stoi(xml.GetChildData()));
+        expense.setAmount(stod(xml.GetChildData()));
         xml.FindChildElem("Date");
         expense.setDate(xml.GetChildData());
         if (expense.getUserId() == loggedInUserId){

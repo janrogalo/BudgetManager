@@ -14,17 +14,23 @@ void IncomeManager::addIncome(){
 Income IncomeManager::inputNewIncome(){
     
     Income income;
+    bool isDateValid = false;
     
     income.setIncomeOperationId(incomeFile.getlastIncomeOperationId()+1);
     income.setUserId(LOGGED_IN_USER_ID);
     cout << "Enter income category: " << endl;
     income.setType(SupportingMethods::inputLine());
     cout << "Enter amount: " << endl;
-    income.setAmount(stoi(SupportingMethods::inputLine()));
+    income.setAmount(stod(SupportingMethods::inputLine()));
+    
+    while (isDateValid == false){
     cout << "Enter operation date in YYYY-MM-DD format: " << endl;
     string date = SupportingMethods::inputLine();
-    income.setDate(SupportingMethods::convertDateToDigits(date));
-    
+    date = SupportingMethods::convertDateToDigits(date);
+    if (dateManagement.dateValidation(date)==true){
+        isDateValid = true;
+        income.setDate(date);}
+    }
     return income;
 }
 
@@ -61,11 +67,11 @@ vector<Income> IncomeManager::SortIncomesByDate(){
 }
 
 
-void IncomeManager::thisMonthsIncomeBalance(){
+int IncomeManager::thisMonthsIncomeBalance(){
     
     int incomesBalance = 0;
     
-    
+
     vector <Income> incomesSorted = SortIncomesByDate();
     
     for (int i = 0; i < incomesSorted.size(); i++){
@@ -81,10 +87,10 @@ void IncomeManager::thisMonthsIncomeBalance(){
             incomesBalance += incomesSorted[i].getAmount();
         }
     }
-    cout << "This month you spent: " << incomesBalance << endl;
+    return incomesBalance;
 }
 
-void IncomeManager::previousMonthsIncomeBalance(){
+int IncomeManager::previousMonthsIncomeBalance(){
     
     int incomeBalance = 0;
     
@@ -104,23 +110,18 @@ void IncomeManager::previousMonthsIncomeBalance(){
             incomeBalance += incomesSorted[i].getAmount();
         }
     }
-    cout << "Last month you spent: " << incomeBalance << endl;
+    return incomeBalance;
 }
 
 
-void IncomeManager::chosenPeriodIncomeBalance(){
+int IncomeManager::chosenPeriodIncomeBalance(int beginningDate, int endDate){
     
     int incomeBalance = 0;
     vector <Income> incomesSorted = SortIncomesByDate();
     
-    cout << "Input beginning date in YYYY-MM-DD format: " << endl;
-    int beginningDate = stoi(SupportingMethods::convertDateToDigits(SupportingMethods::inputLine()));
-    cout << "Input ending date in YYYY-MM-DD format: " << endl;
-    int endingDate = stoi(SupportingMethods::convertDateToDigits(SupportingMethods::inputLine()));
-    
-    
+
     for (int i = 0; i < incomesSorted.size(); i++){
-        if ((stoi(incomesSorted[i].getDate()) >= beginningDate) && (stoi(incomesSorted[i].getDate()) <= endingDate)){
+        if ((stoi(incomesSorted[i].getDate()) >= beginningDate) && (stoi(incomesSorted[i].getDate()) <= endDate)){
             cout << incomesSorted[i].getIncomeOperationId()<<endl;
             cout << incomesSorted[i].getType()<<endl;
             cout << incomesSorted[i].getAmount()<<endl;
@@ -131,6 +132,6 @@ void IncomeManager::chosenPeriodIncomeBalance(){
             incomeBalance += incomesSorted[i].getAmount();
         }
     }
-    cout << "Between" << SupportingMethods::convertDateToFormat(to_string(beginningDate)) << " and " << SupportingMethods::convertDateToFormat(to_string(beginningDate))  << " you spent " << incomeBalance << endl;
+    return incomeBalance;
 }
 

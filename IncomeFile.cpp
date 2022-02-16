@@ -42,7 +42,7 @@ vector <Income> IncomeFile::readIncomeOperationsFromFile(int loggedInUserId){
             xml.FindChildElem("Type");
             income.setType(xml.GetChildData());
             xml.FindChildElem("Amount");
-            income.setAmount(stoi(xml.GetChildData()));
+            income.setAmount(stod(xml.GetChildData()));
             xml.FindChildElem("Date");
             income.setDate(xml.GetChildData());
             if (income.getUserId() == loggedInUserId){

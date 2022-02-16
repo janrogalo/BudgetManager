@@ -11,7 +11,7 @@ class Expense{
     int expenseOperationId;
     int userId;
     string date;
-    int amount;
+    double amount;
     string type;
   
 
@@ -20,13 +20,13 @@ public:
     void setExpenseOperationId(int newExpenseOperationId);
     void setUserId(int newUserId);
     void setDate(string newDate);
-    void setAmount(int newAmount);
+    void setAmount(double newAmount);
     void setType(string newType);
  
     int getExpenseOperationId();
     int getUserId();
     string getDate();
-    int getAmount();
+    double getAmount();
     string getType();
     
     bool operator< (const Expense &other) const {

@@ -12,7 +12,7 @@ void Expense::setDate(string newDate)
 {
     date = newDate;
 }
-void Expense::setAmount(int newAmount){
+void Expense::setAmount(double newAmount){
     amount = newAmount;
 }
 void Expense::setType(string newType){
@@ -32,7 +32,7 @@ string Expense::getDate(){
     return date;
 }
 
-int Expense::getAmount(){
+double Expense::getAmount(){
     return amount;
 }
 
