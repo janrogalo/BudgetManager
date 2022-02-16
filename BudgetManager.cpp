@@ -104,7 +104,7 @@ void BudgetManager::chosenPeriodBalance(){
     beginningDate = stoi(SupportingMethods::convertDateToDigits(SupportingMethods::inputLine()));
         if ((DateManagement::dateValidation(to_string(beginningDate)) == true)){
         isBeginningDateValid = true; }
-    }
+    
     
     while (isEndingDateValid == false){
     cout << "Input ending date in YYYY-MM-DD format: " << endl;
@@ -112,6 +112,7 @@ void BudgetManager::chosenPeriodBalance(){
         if ((DateManagement::dateValidation(to_string(endingDate)) == true)){
             isEndingDateValid = true; }
         
+    }
     
         int income = incomeManager -> chosenPeriodIncomeBalance(beginningDate, endingDate);
         int expense = expenseManager ->chosenPeriodExpenseBalance(beginningDate, endingDate);
