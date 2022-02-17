@@ -15,7 +15,7 @@ bool IncomeFile::saveIncomeOperationToFile(Income income){
     xml.AddElem("IncomeOperationId", income.getIncomeOperationId());
     xml.AddElem("UserId", income.getUserId());
     xml.AddElem("Type", income.getType());
-    xml.AddElem("Amount", income.getAmount());
+    xml.AddElem("Amount", SupportingMethods::convertComaToDot(to_string(income.getAmount())));
     xml.AddElem("Date", income.getDate());
     
     xml.Save(getFilename());
@@ -33,7 +33,7 @@ vector <Income> IncomeFile::readIncomeOperationsFromFile(int loggedInUserId){
         xml.FindElem();
         xml.IntoElem();
         
-        while (xml.FindElem("EIncome"))
+        while (xml.FindElem("Income"))
         {
             xml.FindChildElem("IncomeOperationId");
             income.setIncomeOperationId(stoi(xml.GetChildData()));
@@ -47,6 +47,7 @@ vector <Income> IncomeFile::readIncomeOperationsFromFile(int loggedInUserId){
             income.setDate(xml.GetChildData());
             if (income.getUserId() == loggedInUserId){
                 incomes.push_back(income);
+                
             }
         }
     }

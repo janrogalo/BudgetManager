@@ -16,7 +16,7 @@ bool ExpenseFile::saveExpenseOperationToFile(Expense expense){
         xml.AddElem("ExpenseOperationId", expense.getExpenseOperationId());
         xml.AddElem("UserId", expense.getUserId());
         xml.AddElem("Type", expense.getType());
-        xml.AddElem("Amount", expense.getAmount());
+        xml.AddElem("Amount", SupportingMethods::convertComaToDot(to_string(expense.getAmount())));
         xml.AddElem("Date", expense.getDate());
  
         xml.Save(getFilename());

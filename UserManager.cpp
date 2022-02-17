@@ -2,7 +2,7 @@
 
 User UserManager::inputNewUserData(){
     User user;
-    string username, password;
+    string username, password, name, surname;
     cin.ignore();
     
     user.setUserId(getNewUserId());
@@ -12,6 +12,13 @@ User UserManager::inputNewUserData(){
         user.setUsername(username);
     }
     while (userExists(user.getUsername()) == true);
+    cout << "Input name: ";
+    name = SupportingMethods::inputLine();
+    user.setName(name);
+    cout << "Input Surname: ";
+    surname = SupportingMethods::inputLine();
+    user.setSurname(surname);
+    
     cout << "Input password: ";
     password = SupportingMethods::inputLine();
     user.setPassword(password);
@@ -48,9 +55,11 @@ void UserManager::registerUser(){
 
 void UserManager::printAllUsers(){
     for(int i=0; i <  users.size(); i++){
-        cout << users[i].getUserId()<<endl;
-        cout << users[i].getUsername()<< endl;
-        cout << users[i].getPassword()<< endl;
+        cout << "User ID: "<< users[i].getUserId()<<endl;
+        cout << "Username: "<<users[i].getUsername()<< endl;
+        cout <<"Name: "<< users[i].getName()<< endl;
+        cout << "Surname: "<< users[i].getSurname()<< endl;
+        cout << "Password: "<<users[i].getPassword()<< endl;
     }
 }
 
@@ -101,4 +110,27 @@ bool UserManager::isUserLoggedIn()
         return true;
     else
         return false;
+}
+
+void UserManager::changePassword(){
+    
+        string newPassword = "";
+        cout << "Enter new password: ";
+        cin >> newPassword;
+        
+        for (int i=0; i < users.size(); i++){
+            if (users[i].getUserId() == getLoggedinUserId())
+            {   users[i].setPassword(newPassword);
+                cout <<"Your password has been changed." << endl << endl;
+            }
+        }
+    userFile.saveAllUsersToFile(users);
+    }
+
+void UserManager::setLoggedInUserId(int newLoggedInUserId){
+    loggedInUserId = newLoggedInUserId;
+}
+
+void UserManager::logout(){
+    setLoggedInUserId(0);
 }

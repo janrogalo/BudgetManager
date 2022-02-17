@@ -41,12 +41,17 @@ public:
     void logInUser();
     void printAllUsers();
     void mainMenu();
+    void userMenu();
     int getLoggedInUserId();
+    void changePassword();
+    void logout();
     void addExpense();
     void addIncomes();
     void thisMonthsBalance();
     void lastMonthsBalance();
     void chosenPeriodBalance();
+    
+
 
 };
 

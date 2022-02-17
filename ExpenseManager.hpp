@@ -33,10 +33,11 @@ public:
     vector <Expense> readExpenseOperationsFromFile (int loggedInUserId);
     int getLastExpenseOperationId();
     int setLastExpenseOperationId();
-    int thisMonthsExpenseBalance();
-    int previousMonthsExpenseBalance();
-    int chosenPeriodExpenseBalance(int beginningDate, int endDate);
+    double thisMonthsExpenseBalance();
+    double previousMonthsExpenseBalance();
+    double chosenPeriodExpenseBalance(int beginningDate, int endDate);
     vector <Expense> SortExpensesByDate();
+    void printTotalExpense(vector <Expense> &expenses, int i, double &expenseBalance);
         
 };
 #endif /* ExpenseManager_hpp */

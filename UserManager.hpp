@@ -12,6 +12,7 @@
 
 
 
+
 using namespace std;
 
 class UserManager{
@@ -36,7 +37,9 @@ UserManager(string userFilename) : userFile(userFilename){
     void printAllUsers();
     int getLoggedinUserId();
     bool isUserLoggedIn();
-    
+    void changePassword();
+    void logout();
+    void setLoggedInUserId (int newLoggedInUserId);
 };
 
 #endif /* UserManager_hpp */

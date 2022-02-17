@@ -16,18 +16,27 @@ Expense ExpenseManager::inputNewExpense(){
     
     expense.setExpenseOperationId(expenseFile.getlastExpenseOperationId()+1);
     expense.setUserId(LOGGED_IN_USER_ID);
+    
     cout << "Enter expense category: " << endl;
     expense.setType(SupportingMethods::inputLine());
     cout << "Enter amount: " << endl;
-    expense.setAmount(stod(SupportingMethods::inputLine()));
-    while (isDateValid == false){
-    cout << "Enter operation date in YYYY-MM-DD format: " << endl;
-    string date = SupportingMethods::inputLine();
-    date = SupportingMethods::convertDateToDigits(date);
-    if (dateManagement.dateValidation(date)==true){
-        isDateValid = true;
-        expense.setDate(date);}
-    else cout << "Entered date is not valid. Try again!" << endl;
+    expense.setAmount(stod(SupportingMethods::convertComaToDot( SupportingMethods::inputLine())));
+                 
+    cout << "Would you like to input operation with today's date? Y/N" << endl;
+   
+    if ((getchar() == 'y') ||  (getchar() == 'Y')){
+        expense.setDate(to_string(dateManagement.currentDate()));
+    }
+    else{
+        while (isDateValid == false){
+            cout << "Enter operation date in YYYY-MM-DD format: " << endl;
+            string date = SupportingMethods::inputLine();
+            date = SupportingMethods::convertDateToDigits(date);
+            if (dateManagement.dateValidation(date)==true){
+                isDateValid = true;
+               expense.setDate(date);}
+            else cout << "Entered date is not valid. Try again!" << endl;
+        }
     }
     return expense;
 }
@@ -65,74 +74,60 @@ vector<Expense> ExpenseManager::SortExpensesByDate(){
 }
 
 
-int ExpenseManager::thisMonthsExpenseBalance(){
+void ExpenseManager::printTotalExpense(vector <Expense> &expenses, int i, double &expenseBalance){
     
-    int expenseBalance = 0;
+    string date =  SupportingMethods::convertDateToFormat(expenses[i].getDate());
+    cout << "Operation Date: " << date << endl;
+    cout << "Expense Operation Id: " << expenses[i].getExpenseOperationId()<<endl;
+    cout << "Description: "<<  expenses[i].getType()<<endl;
+    cout << "Amount: "<< expenses[i].getAmount()<<endl;
+    cout << "-----";
+    cout << endl;
+    expenseBalance += expenses[i].getAmount();
+}
+
+double ExpenseManager::thisMonthsExpenseBalance(){
     
-    
+    double expenseBalance = 0;
     vector <Expense> expensesSorted = SortExpensesByDate();
     
     for (int i = 0; i < expensesSorted.size(); i++){
-        
         if ((stoi(expensesSorted[i].getDate()) >= dateManagement.currentMonthBegining()) && (stoi(expensesSorted[i].getDate()) <= dateManagement.currentDate())){
-            cout << expensesSorted[i].getExpenseOperationId()<<endl;
-            cout << expensesSorted[i].getType()<<endl;
-            cout << expensesSorted[i].getAmount()<<endl;
-            
-            string date =  SupportingMethods::convertDateToFormat(expensesSorted[i].getDate());
-            cout << date << endl;
-            
-            expenseBalance += expensesSorted[i].getAmount();
+           printTotalExpense(expensesSorted, i, expenseBalance);
         }
     }
+    cout << endl << "Total expense: " << expenseBalance << endl;
     return expenseBalance;
 }
 
-int ExpenseManager::previousMonthsExpenseBalance(){
+double ExpenseManager::previousMonthsExpenseBalance(){
     
-    int expenseBalance = 0;
-    
-    
+    double expenseBalance = 0;
     vector <Expense> expensesSorted = SortExpensesByDate();
     
     for (int i = 0; i < expensesSorted.size(); i++){
-        
         if ((stoi(expensesSorted[i].getDate()) >= dateManagement.previousMonthBeginning()) && (stoi(expensesSorted[i].getDate()) <= dateManagement.previousMonthEnd())){
-            cout << expensesSorted[i].getExpenseOperationId()<<endl;
-            cout << expensesSorted[i].getType()<<endl;
-            cout << expensesSorted[i].getAmount()<<endl;
-            
-            string date =  SupportingMethods::convertDateToFormat(expensesSorted[i].getDate());
-            cout << date << endl;
-            
-            expenseBalance += expensesSorted[i].getAmount();
+            printTotalExpense(expensesSorted, i, expenseBalance);
         }
     }
+    cout << endl << "Total expense: " << expenseBalance << endl;
     return expenseBalance;
 }
 
-
-int ExpenseManager::chosenPeriodExpenseBalance(int beginningDate, int endDate){
-
-    int expenseBalance = 0;
-    vector <Expense> expensesSorted = SortExpensesByDate();
+double ExpenseManager::chosenPeriodExpenseBalance(int beginningDate, int endDate){
     
-   
+    double expenseBalance = 0;
+    vector <Expense> expensesSorted = SortExpensesByDate();
     
     for (int i = 0; i < expensesSorted.size(); i++){
         if ((stoi(expensesSorted[i].getDate()) >= beginningDate) && (stoi(expensesSorted[i].getDate()) <= endDate)){
-            cout << expensesSorted[i].getExpenseOperationId()<<endl;
-            cout << expensesSorted[i].getType()<<endl;
-            cout << expensesSorted[i].getAmount()<<endl;
-            
-            string date =  SupportingMethods::convertDateToFormat(expensesSorted[i].getDate());
-            cout << date << endl << endl;
-            
-            expenseBalance += expensesSorted[i].getAmount();
+            printTotalExpense(expensesSorted, i, expenseBalance);
         }
     }
+    cout << endl << "Total expense: " << expenseBalance << endl;
     return expenseBalance;
 }
+
 
 
 

@@ -8,27 +8,27 @@ string SupportingMethods::inputLine()
 }
 
 string SupportingMethods::convertDateToDigits(string date){
-  
-       int temp, digit, sum = 0;
-        for(int i = 0; i < date.length(); i++){
-            if(isdigit(date[i])){
-               temp = date[i];
-               digit = temp - 48;
-               sum = sum*10 + digit;
-            }
-        }
     
-        return to_string(sum);
+    int temp, digit, sum = 0;
+    for(int i = 0; i < date.length(); i++){
+        if(isdigit(date[i])){
+            temp = date[i];
+            digit = temp - 48;
+            sum = sum*10 + digit;
+        }
     }
+    
+    return to_string(sum);
+}
 
 string SupportingMethods::convertDateToFormat(string dateStr){
-  
+    
     string dateString;
     int date = stoi(dateStr);
-        int day = date%100;
-        date= (date - day)/100 ;
-        int month = date%100;
-        int year= (date - month)/100;
+    int day = date%100;
+    date= (date - day)/100 ;
+    int month = date%100;
+    int year= (date - month)/100;
     
     
     dateString = to_string(year) + "-";
@@ -43,4 +43,14 @@ string SupportingMethods::convertDateToFormat(string dateStr){
     else dateString += to_string(day);
     
     return dateString;
+}
+
+string SupportingMethods::convertComaToDot(string amount){
+    
+    for( int i=0; i < amount.length(); i++){
+        if (amount[i] == ','){
+            amount[i] = '.';
+        }
     }
+    return amount;
+}
