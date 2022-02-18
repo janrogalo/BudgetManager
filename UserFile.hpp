@@ -21,7 +21,7 @@ public:
 UserFile(string filename) : XMLFile(filename){};
     void saveUserToFile(User user);
     vector <User> getUsersFromFile();
-  void  saveAllUsersToFile(vector <User> &users);
+  void  saveAllUsersToFile(vector <User> users, int loggedInUserId, int i);
   
 };
 

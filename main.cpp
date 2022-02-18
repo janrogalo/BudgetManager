@@ -51,7 +51,6 @@ int main(){
                         break;
                     case '6':
                         budgetManager.changePassword();
-                        budgetManager.printAllUsers();
                         break;
                     case '7':
                         budgetManager.logout();

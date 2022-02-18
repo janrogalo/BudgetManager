@@ -50,30 +50,35 @@ vector <User> UserFile::getUsersFromFile(){
 }
     
  
-void UserFile::saveAllUsersToFile(vector<User> &users){
+void UserFile::saveAllUsersToFile(vector <User> users, int loggedInUserId, int i){
     
     CMarkup xml;
     bool fileExists = xml.Load(getFilename());
     
-if (!fileExists){
-    xml.AddElem("Users");
-    
-    for(int i = 0; i < users.size(); i++){
-        
+    if (fileExists){
         xml.FindElem();
         xml.IntoElem();
-        xml.AddElem("User");
-        xml.IntoElem();
-        xml.AddElem("UserId", users[i].getUserId());
-        xml.AddElem("Username", users[i].getUsername());
-        xml.AddElem("Name", users[i].getName());
-        xml.AddElem("Surname", users[i].getSurname());
-        xml.AddElem("Password", users[i].getPassword());
-    }   
+        while (xml.FindElem("User")){
+            xml.FindChildElem("UserId");
+            if (stoi(xml.GetChildData()) == loggedInUserId ) {
+       
+                for (i = 0; i < users.size(); i++){
+           
+                xml.AddElem("User");
+                xml.IntoElem();
+                xml.AddElem("UserId", users[i].getUserId());
+                xml.AddElem("Username", users[i].getUsername());
+                xml.AddElem("Name", users[i].getName());
+                xml.AddElem("Surname", users[i].getSurname());
+                xml.AddElem("Password", users[i].getPassword());
+                xml.AddElem("/User");
+            }
+            }
+            xml.RemoveElem();
+        }
 }
     xml.Save(getFilename());
 }
-
 
 
 

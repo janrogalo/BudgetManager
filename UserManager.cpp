@@ -123,8 +123,8 @@ void UserManager::changePassword(){
             {   users[i].setPassword(newPassword);
                 cout <<"Your password has been changed." << endl << endl;
             }
+            userFile.saveAllUsersToFile(users, loggedInUserId, i);
         }
-    userFile.saveAllUsersToFile(users);
     }
 
 void UserManager::setLoggedInUserId(int newLoggedInUserId){
