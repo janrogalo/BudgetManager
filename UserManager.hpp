@@ -9,6 +9,7 @@
 #include <sstream>
 #include "SupportingMethods.hpp"
 #include "UserFile.hpp"
+#include "User.hpp"
 
 
 
@@ -29,7 +30,7 @@ public:
     
 UserManager(string userFilename) : userFile(userFilename){
     loggedInUserId = 0;
-    users=userFile.getUsersFromFile();
+  users=userFile.getUsersFromFile();
 };
     
     int loginUser();

@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include <stdio.h>
 #include <string>
 #include "User.hpp"
 #include "SupportingMethods.hpp"
@@ -21,7 +22,7 @@ public:
 UserFile(string filename) : XMLFile(filename){};
     void saveUserToFile(User user);
     vector <User> getUsersFromFile();
-  void  saveAllUsersToFile(vector <User> users, int loggedInUserId, int i);
+  void  changePassword(User user);
   
 };
 

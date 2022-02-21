@@ -71,31 +71,28 @@ int UserManager::loginUser()
     
     cout << endl << "Enter username: ";
     username = SupportingMethods::inputLine();
-    
     vector <User>::iterator itr = users.begin();
     while (itr != users.end())
     {
-        if (itr -> getUsername() == username)
-        {
-            for (int attempts = 3; attempts > 0; attempts--)
-            {
+        if (itr -> getUsername() == username){ 
+            for (int attempts = 3; attempts > 0; attempts--){
                 cout << "Enter password. Attempts remaining: " << attempts << ": ";
                 password = SupportingMethods::inputLine();
                 
-                if (itr -> getPassword() == password)
-                {
+                if (itr -> getPassword() == password){
                     cout << endl << "You logged in successfully." << endl << endl;
                     loggedInUserId = itr -> getUserId();
                     return loggedInUserId;
                 }
             }
             cout << "You made 3 unsuccessful attempts." << endl;
-            
             return 0;
         }
         itr++;
+        cout << "Username not found" << endl << endl;
+        return 0;
+        
     }
-    cout << "Username not found" << endl << endl;
     return 0;
 }
 
@@ -113,19 +110,20 @@ bool UserManager::isUserLoggedIn()
 }
 
 void UserManager::changePassword(){
-    
-        string newPassword = "";
+        
+    string newPassword = "";
         cout << "Enter new password: ";
         cin >> newPassword;
         
         for (int i=0; i < users.size(); i++){
             if (users[i].getUserId() == getLoggedinUserId())
-            {   users[i].setPassword(newPassword);
-                cout <<"Your password has been changed." << endl << endl;
+               {   users[i].setPassword(newPassword);
+                userFile.changePassword(users[i]);
             }
-            userFile.saveAllUsersToFile(users, loggedInUserId, i);
         }
+    cout <<"Your password has been changed." << endl << endl;
     }
+
 
 void UserManager::setLoggedInUserId(int newLoggedInUserId){
     loggedInUserId = newLoggedInUserId;

@@ -8,6 +8,8 @@ int main(){
     BudgetManager budgetManager("user.xml", "expense.xml", "income.xml"); 
     int loggedInUserId = 0;
 
+    budgetManager.printAllUsers();
+    
     do{
         char menuChoice;
         if (loggedInUserId == 0){

@@ -9,7 +9,7 @@ void UserFile::saveUserToFile(User user){
 if (!fileExists){
     xml.AddElem("Users");
 }
-    xml.FindElem();
+    xml.FindElem("Users");
     xml.IntoElem();
     xml.AddElem("User");
     xml.IntoElem();
@@ -27,9 +27,8 @@ vector <User> UserFile::getUsersFromFile(){
     vector <User> users;
     
     CMarkup xml;
-    bool fileExists = xml.Load(getFilename());
-    if (fileExists){
-    xml.FindElem();
+    xml.Load(getFilename());
+    xml.FindElem("Users");
     xml.IntoElem();
     while (xml.FindElem("User"))
     {
@@ -38,48 +37,33 @@ vector <User> UserFile::getUsersFromFile(){
         xml.FindChildElem("Username");
         user.setUsername(xml.GetChildData());
         xml.FindChildElem("Name");
-        user.setUsername(xml.GetChildData());
+        user.setName(xml.GetChildData());
         xml.FindChildElem("Surname");
-        user.setUsername(xml.GetChildData());
+        user.setSurname(xml.GetChildData());
         xml.FindChildElem("Password");
         user.setPassword(xml.GetChildData());
         users.push_back(user);
-    }
     }
     return users;
 }
     
  
-void UserFile::saveAllUsersToFile(vector <User> users, int loggedInUserId, int i){
+void  UserFile::changePassword(User user){
     
     CMarkup xml;
-    bool fileExists = xml.Load(getFilename());
-    
-    if (fileExists){
-        xml.FindElem();
+    xml.Load(getFilename());
+  
+        xml.FindElem("Users");
         xml.IntoElem();
         while (xml.FindElem("User")){
             xml.FindChildElem("UserId");
-            if (stoi(xml.GetChildData()) == loggedInUserId ) {
-       
-                for (i = 0; i < users.size(); i++){
-           
-                xml.AddElem("User");
-                xml.IntoElem();
-                xml.AddElem("UserId", users[i].getUserId());
-                xml.AddElem("Username", users[i].getUsername());
-                xml.AddElem("Name", users[i].getName());
-                xml.AddElem("Surname", users[i].getSurname());
-                xml.AddElem("Password", users[i].getPassword());
-                xml.AddElem("/User");
+            if (stoi( MCD_2PCSZ(xml.GetChildData())) == user.getUserId()){
+                xml.FindChildElem("Password");
+                xml.SetChildData(user.getPassword());
             }
-            }
-            xml.RemoveElem();
         }
-}
     xml.Save(getFilename());
 }
-
 
 
 

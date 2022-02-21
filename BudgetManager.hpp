@@ -25,8 +25,10 @@ public:
     
     BudgetManager(string userFilename, string expenseFilename, string incomeFilename) : userManager(userFilename), EXPENSE_FILENAME(expenseFilename), INCOME_FILENAME(incomeFilename)
     {
-       expenseManager = NULL;
+        expenseManager = NULL;
         incomeManager = NULL;
+        
+        
     };
     
    ~BudgetManager(){
