@@ -8,7 +8,6 @@
 #include "IncomeManager.hpp"
 #include "DateManagement.hpp"
 
-
 using namespace std;
 
 class BudgetManager{
@@ -16,19 +15,14 @@ class BudgetManager{
     UserManager userManager;
     ExpenseManager *expenseManager;
     IncomeManager *incomeManager;
-    
-
     const string EXPENSE_FILENAME;
     const string INCOME_FILENAME;
   
 public:
     
-    BudgetManager(string userFilename, string expenseFilename, string incomeFilename) : userManager(userFilename), EXPENSE_FILENAME(expenseFilename), INCOME_FILENAME(incomeFilename)
-    {
+    BudgetManager(string userFilename, string expenseFilename, string incomeFilename) : userManager(userFilename), EXPENSE_FILENAME(expenseFilename), INCOME_FILENAME(incomeFilename){
         expenseManager = NULL;
         incomeManager = NULL;
-        
-        
     };
     
    ~BudgetManager(){
@@ -38,7 +32,6 @@ public:
        incomeManager = NULL;
     };
     
-    ;
     void registerUser();
     void logInUser();
     void printAllUsers();
@@ -52,9 +45,6 @@ public:
     void thisMonthsBalance();
     void lastMonthsBalance();
     void chosenPeriodBalance();
-    
-
-
 };
 
 #endif /* BudgetManager_hpp */

@@ -23,9 +23,7 @@ class ExpenseManager {
     
 public:
    ExpenseManager(int loggedInUserId, string expenseFilename) : LOGGED_IN_USER_ID(loggedInUserId), expenseFile(expenseFilename) {
-    
        expenses = expenseFile.readExpenseOperationsFromFile(LOGGED_IN_USER_ID);
-    
    };
 
     void addExpense();

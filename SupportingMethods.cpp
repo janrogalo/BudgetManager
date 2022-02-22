@@ -35,9 +35,7 @@ string SupportingMethods::convertDateToFormat(string dateStr){
     
     if(month < 10){
         dateString += ("0" + to_string(month) + "-");}
-    
     else dateString +=(to_string(month) + "-");
-    
     if(day < 10){
         dateString += ("0" + to_string(day));}
     else dateString += to_string(day);

@@ -12,7 +12,7 @@ void IncomeManager::addIncome(){
 Income IncomeManager::inputNewIncome(){
     Income income;
     bool isDateValid = false;
-    
+    cin.ignore();
     income.setIncomeOperationId(incomeFile.getlastIncomeOperationId()+1);
     income.setUserId(LOGGED_IN_USER_ID);
     cout << "Enter income category: " << endl;

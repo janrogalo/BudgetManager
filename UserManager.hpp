@@ -11,14 +11,11 @@
 #include "UserFile.hpp"
 #include "User.hpp"
 
-
-
-
 using namespace std;
 
 class UserManager{
     
-   
+    
     vector  <User> users;
     UserFile userFile;
     User inputNewUserData();
@@ -28,10 +25,10 @@ class UserManager{
     
 public:
     
-UserManager(string userFilename) : userFile(userFilename){
-    loggedInUserId = 0;
-  users=userFile.getUsersFromFile();
-};
+    UserManager(string userFilename) : userFile(userFilename){
+        loggedInUserId = 0;
+        users=userFile.getUsersFromFile();
+    };
     
     int loginUser();
     void registerUser();

@@ -1,10 +1,3 @@
-//
-//  IncomeFile.hpp
-//  XML_Proby
-//
-//  Created by Jan Rogalo on 14/02/2022.
-//
-
 #ifndef IncomeFile_hpp
 #define IncomeFile_hpp
 

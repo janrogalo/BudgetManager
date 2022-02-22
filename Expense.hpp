@@ -14,7 +14,6 @@ class Expense{
     double amount;
     string type;
   
-
 public:
     
     void setExpenseOperationId(int newExpenseOperationId);
@@ -32,11 +31,6 @@ public:
     bool operator< (const Expense &other) const {
           return stoi(date) < stoi(other.date);
       }
-    
-    
-  
- 
-  
 };
 
 #endif /* Expense_hpp */

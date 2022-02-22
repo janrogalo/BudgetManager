@@ -1,4 +1,3 @@
-
 #ifndef UserFile_hpp
 #define UserFile_hpp
 
@@ -15,9 +14,7 @@
 using namespace std;
 
 class UserFile : public XMLFile {
-  ;
-
-    
+ 
 public:
 UserFile(string filename) : XMLFile(filename){};
     void saveUserToFile(User user);

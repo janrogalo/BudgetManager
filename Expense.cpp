@@ -1,6 +1,5 @@
 #include "Expense.hpp"
 
-
 void Expense::setExpenseOperationId(int newExpenseOperationId){
     expenseOperationId = newExpenseOperationId;
 }
@@ -18,7 +17,6 @@ void Expense::setAmount(double newAmount){
 void Expense::setType(string newType){
     type = newType;
 }
-
 
 int Expense::getExpenseOperationId(){
     return expenseOperationId;

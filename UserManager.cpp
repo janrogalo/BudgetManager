@@ -110,20 +110,18 @@ bool UserManager::isUserLoggedIn()
 }
 
 void UserManager::changePassword(){
-        
+    
     string newPassword = "";
         cout << "Enter new password: ";
         cin >> newPassword;
         
         for (int i=0; i < users.size(); i++){
-            if (users[i].getUserId() == getLoggedinUserId())
-               {   users[i].setPassword(newPassword);
+            if (users[i].getUserId() == getLoggedinUserId()){ users[i].setPassword(newPassword);
                 userFile.changePassword(users[i]);
+                cout <<"Your password has been changed." << endl << endl;
             }
         }
-    cout <<"Your password has been changed." << endl << endl;
     }
-
 
 void UserManager::setLoggedInUserId(int newLoggedInUserId){
     loggedInUserId = newLoggedInUserId;

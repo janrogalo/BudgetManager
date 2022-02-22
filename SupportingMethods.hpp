@@ -2,7 +2,6 @@
 #define SupportingMethods_hpp
 
 #include <stdio.h>
-
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -19,7 +18,6 @@ static string inputLine();
 static string convertDateToDigits(string date);
 static string convertDateToFormat(string date);
 static string convertComaToDot(string amount);
-
 
 };
 

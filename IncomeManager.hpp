@@ -25,9 +25,7 @@ class IncomeManager{
     
 public:
     IncomeManager(int loggedInUserId, string incomeFilename) : LOGGED_IN_USER_ID(loggedInUserId), incomeFile(incomeFilename) {
-        
         incomes = incomeFile.readIncomeOperationsFromFile(LOGGED_IN_USER_ID);
-        
     };
     
     void addIncome();

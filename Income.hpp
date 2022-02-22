@@ -14,7 +14,6 @@ class Income{
     double amount;
     string type;
   
-
 public:
     
     void setIncomeOperationId(int newIncomeOperationId);

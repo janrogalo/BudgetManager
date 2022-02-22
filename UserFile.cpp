@@ -1,6 +1,5 @@
 #include "UserFile.hpp"
 
-
 void UserFile::saveUserToFile(User user){
    
     CMarkup xml;

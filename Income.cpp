@@ -1,7 +1,5 @@
 #include "Income.hpp"
 
-
-
 void Income::setIncomeOperationId(int newvOperationId){
     incomeOperationId = newvOperationId;
 }
@@ -19,7 +17,6 @@ void Income::setAmount(double newAmount){
 void Income::setType(string newType){
     type = newType;
 }
-
 
 int Income::getIncomeOperationId(){
     return incomeOperationId;

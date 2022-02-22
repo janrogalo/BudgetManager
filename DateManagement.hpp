@@ -1,10 +1,3 @@
-//
-//  DateManagement.hpp
-//  XML_Proby
-//
-//  Created by Jan Rogalo on 13/02/2022.
-//
-
 #ifndef DateManagement_hpp
 #define DateManagement_hpp
 
@@ -19,7 +12,6 @@ class DateManagement{
     
     int beginingYear = 2000;
 
-    
 public:
     int static currentDate();
     int static currentMonthBegining();
@@ -33,6 +25,5 @@ public:
     bool static dateValidation(string date);
     
 };
-
 
 #endif /* DateManagement_hpp */

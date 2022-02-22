@@ -24,7 +24,6 @@ void BudgetManager::logInUser(){
 }
 
 void BudgetManager::mainMenu(){
-    
     cout << endl << "Welcome to Budget Manager" << endl;
     cout << "-_-_-_-_-_-_-_-_-_-_-_-_-" << endl;
     cout << endl << "   >>> MAIN MENU <<<    " << endl;
@@ -37,7 +36,6 @@ void BudgetManager::mainMenu(){
 }
 
 void BudgetManager::userMenu(){
-    
     cout << "-_-_-_-_-_-_-_-_-_-_-_-_-" << endl;
     cout << endl << "   >>> USER MENU<<<    " << endl;
     cout << "-_-_-_-_-_-_-_-_-_-_-_-_-" << endl;
@@ -52,7 +50,6 @@ void BudgetManager::userMenu(){
     cout << "---------------------------" << endl;
     cout << "Your choice: ";
 }
-
 
 int BudgetManager::getLoggedInUserId(){
     return userManager.getLoggedinUserId();
@@ -71,8 +68,6 @@ void BudgetManager::thisMonthsBalance(){
     cout << "<<< THIS MONTH'S BALANCE >>>" << endl << endl;
     cout << "Your income operations: " << endl;
     double income = incomeManager ->thisMonthsIncomeBalance();
-    
-    
     cout << endl << "Your expense operations: " << endl;
     double expense = expenseManager ->thisMonthsExpenseBalance();
     cout << "---------------------------------------" << endl;
@@ -82,7 +77,6 @@ void BudgetManager::thisMonthsBalance(){
     }
     else if ( expense > income){
         cout << "This month your savings diminished by: " << expense - income << " - be careful about spending!" << endl;
-        
     }
     else {
         cout << "Your savings remained the same!" << endl;
@@ -94,8 +88,6 @@ void BudgetManager::lastMonthsBalance(){
     cout << "<<< PREVIOUS MONTH'S BALANCE >>>" << endl << endl;
     cout << "Your income operations: " << endl;
     double income = incomeManager ->previousMonthsIncomeBalance();
-    
-    
     cout << endl << "Your expense operations: " << endl;
     double expense = expenseManager ->previousMonthsExpenseBalance();
     cout << "---------------------------------------" << endl;
@@ -113,10 +105,8 @@ void BudgetManager::lastMonthsBalance(){
 
 void BudgetManager::chosenPeriodBalance(){
     
-    bool isBeginningDateValid = false;
-    bool isEndingDateValid = false;
+    bool isBeginningDateValid = false, isEndingDateValid = false;
     int beginningDate=0, endingDate=0;
-    
     
     while (isBeginningDateValid == false){
         cout << "Input beginning date in YYYY-MM-DD format: " << endl;
@@ -124,13 +114,11 @@ void BudgetManager::chosenPeriodBalance(){
         if ((DateManagement::dateValidation(to_string(beginningDate)) == true)){
             isBeginningDateValid = true; }
         
-        
         while (isEndingDateValid == false){
             cout << "Input ending date in YYYY-MM-DD format: " << endl;
             endingDate = stoi(SupportingMethods::convertDateToDigits(SupportingMethods::inputLine()));
             if ((DateManagement::dateValidation(to_string(endingDate)) == true)){
                 isEndingDateValid = true; }
-            
         }
         cout<< "<<< BALANCE BETWEEN ";
         cout<< SupportingMethods::convertDateToFormat(to_string(beginningDate));
@@ -139,7 +127,6 @@ void BudgetManager::chosenPeriodBalance(){
         
         cout << "Your income operations: " << endl;
         double income = incomeManager ->chosenPeriodIncomeBalance(beginningDate, endingDate);
-        
         cout << endl << "Your expense operations: " << endl;
         double expense = expenseManager ->chosenPeriodExpenseBalance(beginningDate, endingDate);
         cout << "---------------------------------------" << endl;

@@ -1,12 +1,4 @@
-//
-//  DateManagement.cpp
-//  XML_Proby
-//
-//  Created by Jan Rogalo on 13/02/2022.
-//
-
 #include "DateManagement.hpp"
-
 
 int DateManagement::currentDate(){
     
@@ -110,11 +102,8 @@ bool DateManagement::dateValidation(string date){
     time_t t = time(NULL);
     tm* tPtr = localtime(&t);
     int year = (tPtr->tm_year)+1900;
-    
-
-    
     int dateInput = stoi(date);
-
+    
     int dayInput = dateInput%100;
     int monthInput = (dateInput  / 100) % 100;
     int yearInput = dateInput / 10000;

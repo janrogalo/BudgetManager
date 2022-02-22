@@ -13,10 +13,10 @@ Expense ExpenseManager::inputNewExpense(){
     
     Expense expense;
     bool isDateValid = false;
-    
+    cin.ignore();
     expense.setExpenseOperationId(expenseFile.getlastExpenseOperationId()+1);
     expense.setUserId(LOGGED_IN_USER_ID);
-    
+
     cout << "Enter expense category: " << endl;
     expense.setType(SupportingMethods::inputLine());
     cout << "Enter amount: " << endl;
