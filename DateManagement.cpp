@@ -28,25 +28,31 @@ int DateManagement::currentMonthBegining(){
 
 int DateManagement::howManyDaysInMonth(int year, int month){
     
-    {
-        
-        int numberOfDays;
-        if ( month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 ) {
-            numberOfDays = 31;
-            return numberOfDays;
+    int numberOfDays;
+    if ( month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 ) {
+        numberOfDays = 31;
+        return numberOfDays;
+    }
+    else if ( month == 2){
+        if (year%4 == 0){
+            if (year%100 !=0 || year%400 == 0){
+                numberOfDays=29;
+                return numberOfDays;
+            }
+            else{
+                numberOfDays=28;
+                return numberOfDays;
+            }
         }
-        else if ( month == 2 && year%4 == 0  && year%400 == 0 && !(year%100 == 0)){
-            numberOfDays = 29;
-            return numberOfDays;
-        }
-        else if ( month == 2 && year%4 != 0 && year%100 == 0  && !(year%400 == 0)){
+        else{
             numberOfDays=28;
             return numberOfDays;
         }
-        else{ numberOfDays = 30;
-            return numberOfDays;
-        }
     }
+    else{ numberOfDays = 30;
+        return numberOfDays;
+    }
+    return 0;
 }
 
 int DateManagement::previousMonthBeginning(){
@@ -79,8 +85,13 @@ int DateManagement::howManyDaysSinceFirstDate(int year, int month, int day){
     
     int daysSinceFirstDate = 0;
     for (int i = getBeginningYear(); i < year; i++){
-        if(i%4== 0 && year%400 == 0 && !(year%100 == 0)){
-            daysSinceFirstDate += 366;
+        if (i%4 == 0){
+            if (i%100 !=0 || i%400 == 0){
+                daysSinceFirstDate += 366;
+            }
+            else{
+                daysSinceFirstDate += 365;
+            }
         }
         else{
             daysSinceFirstDate += 365;
@@ -107,6 +118,10 @@ bool DateManagement::dateValidation(string date){
     int dayInput = dateInput%100;
     int monthInput = (dateInput  / 100) % 100;
     int yearInput = dateInput / 10000;
+    
+    if (dateInput > currentDate()){
+        return false;
+    }
     
     if(yearInput >= 2000 && yearInput <= year){
         if (monthInput >= 1 && monthInput <= 12){

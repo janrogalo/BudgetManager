@@ -28,6 +28,7 @@ Income IncomeManager::inputNewIncome(){
         income.setDate(to_string(dateManagement.currentDate()));
     }
     else{
+        cin.ignore();
         while (isDateValid == false){
             cout << "Enter operation date in YYYY-MM-DD format: " << endl;
             string date = SupportingMethods::inputLine();
