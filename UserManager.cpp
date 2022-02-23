@@ -89,10 +89,9 @@ int UserManager::loginUser()
             return 0;
         }
         itr++;
-        cout << "Username not found" << endl << endl;
-        return 0;
         
     }
+    cout << "Username not found" << endl << endl;
     return 0;
 }
 

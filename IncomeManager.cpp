@@ -23,7 +23,8 @@ Income IncomeManager::inputNewIncome(){
                  
     cout << "Would you like to input operation with today's date? Y/N" << endl;
    
-    if ((getchar() == 'y') ||  (getchar() == 'Y')){
+    char choice = getchar();
+    if ((choice == 'y') ||  (choice == 'Y')){
         income.setDate(to_string(dateManagement.currentDate()));
     }
     else{

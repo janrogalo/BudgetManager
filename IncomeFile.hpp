@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <vector>
+#include <iomanip>
 #include "Income.hpp"
 #include "XMLFile.hpp"
 #include "SupportingMethods.hpp"
@@ -12,7 +13,6 @@ class IncomeFile : public XMLFile {
     int lastIncomeOperationId;
     int loggedInUserId;
     SupportingMethods supportinMethods;
-    
     Income getIncomeData();
     
 public:

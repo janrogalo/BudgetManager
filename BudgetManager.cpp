@@ -81,6 +81,9 @@ void BudgetManager::thisMonthsBalance(){
     else {
         cout << "Your savings remained the same!" << endl;
     }
+    cout << "Press any key to continue" << endl;
+    cin.ignore();
+    cin.ignore();
 }
 
 void BudgetManager::lastMonthsBalance(){
@@ -101,12 +104,16 @@ void BudgetManager::lastMonthsBalance(){
     else {
         cout << "Your savings remained the same!" << endl;
     }
+    cout << "Press any key to continue" << endl;
+    cin.ignore();
+    cin.ignore();
 }
 
 void BudgetManager::chosenPeriodBalance(){
     
     bool isBeginningDateValid = false, isEndingDateValid = false;
     int beginningDate=0, endingDate=0;
+    cin.ignore();
     
     while (isBeginningDateValid == false){
         cout << "Input beginning date in YYYY-MM-DD format: " << endl;
@@ -117,9 +124,12 @@ void BudgetManager::chosenPeriodBalance(){
         while (isEndingDateValid == false){
             cout << "Input ending date in YYYY-MM-DD format: " << endl;
             endingDate = stoi(SupportingMethods::convertDateToDigits(SupportingMethods::inputLine()));
-            if ((DateManagement::dateValidation(to_string(endingDate)) == true)){
+            if ((DateManagement::dateValidation(to_string(endingDate)) == true) && (beginningDate < endingDate)){
                 isEndingDateValid = true; }
+            else cout << "Invalid date. Try again." << endl;
+            
         }
+        
         cout<< "<<< BALANCE BETWEEN ";
         cout<< SupportingMethods::convertDateToFormat(to_string(beginningDate));
         cout<< " AND " << SupportingMethods::convertDateToFormat(to_string(endingDate));
@@ -140,6 +150,9 @@ void BudgetManager::chosenPeriodBalance(){
         else {
             cout << "Your savings remained the same!" << endl;
         }
+        cout << "Press any key to continue" << endl;
+        cin.ignore();
+        cin.ignore();
     }
 }
 

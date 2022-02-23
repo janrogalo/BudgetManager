@@ -52,3 +52,10 @@ string SupportingMethods::convertComaToDot(string amount){
     }
     return amount;
 }
+
+string SupportingMethods::setPrecisionforXml(double number){
+    stringstream stream;
+    stream << fixed << setprecision(2) << number;
+    return stream.str();
+}
+

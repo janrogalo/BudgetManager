@@ -15,7 +15,7 @@ bool IncomeFile::saveIncomeOperationToFile(Income income){
     xml.AddElem("IncomeOperationId", income.getIncomeOperationId());
     xml.AddElem("UserId", income.getUserId());
     xml.AddElem("Type", income.getType());
-    xml.AddElem("Amount", SupportingMethods::convertComaToDot(to_string(income.getAmount())));
+    xml.AddElem("Amount", SupportingMethods::convertComaToDot(SupportingMethods::setPrecisionforXml(income.getAmount())));
     xml.AddElem("Date", income.getDate());
     
     xml.Save(getFilename());

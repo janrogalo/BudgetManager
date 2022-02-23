@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 int main(){
     BudgetManager budgetManager("user.xml", "expense.xml", "income.xml");
     int loggedInUserId = 0;

@@ -6,6 +6,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
 #include "User.hpp"
 
 using namespace std;
@@ -18,6 +19,7 @@ static string inputLine();
 static string convertDateToDigits(string date);
 static string convertDateToFormat(string date);
 static string convertComaToDot(string amount);
+static string setPrecisionforXml(double number);
 
 };
 

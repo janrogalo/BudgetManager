@@ -23,8 +23,9 @@ Expense ExpenseManager::inputNewExpense(){
     expense.setAmount(stod(SupportingMethods::convertComaToDot( SupportingMethods::inputLine())));
                  
     cout << "Would you like to input operation with today's date? Y/N" << endl;
-   
-    if ((getchar() == 'y') ||  (getchar() == 'Y')){
+    
+    char choice = getchar();
+    if ((choice == 'y') ||  (choice == 'Y')){
         expense.setDate(to_string(dateManagement.currentDate()));
     }
     else{
